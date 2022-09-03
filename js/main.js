@@ -115,13 +115,6 @@ const toggleSpinner = isLoading  => {
 }
 
 
-const displayNews = () =>{
-  const url = `https://openapi.programming-hero.com/api/news/0282e0e58a5c404fbd15261f11c2ab6a`;
-  fetch(url)
-    .then(res =>res.json())
-    .then(data => console.log(data.data[0]))
-  
-}
-displayNews()
+
 
 loadCategory();
