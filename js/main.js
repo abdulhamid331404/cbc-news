@@ -12,22 +12,20 @@ const displayCategoryData = (categorys) =>{
   categoryContainer.classList.add('bg-light')
   categoryContainer.classList.add('navbar')
   categorys.forEach(category =>{
-  //  console.log(category);
+
     const categoryDiv = document.createElement('div');
     categoryDiv.classList.add('d-flex')
     categoryDiv.innerHTML = `
    <a onclick="loadNewsCategory('${category.category_id}')" class="navbar-brand" href="#">${category.category_name}</a>
     `
-    // onclick="${loadNewList(categories[0].category_id)}"
     categoryContainer.appendChild(categoryDiv);
   })
 
 }
 
 const loadNewsCategory = (category_id) =>{
-    // console.log(category_id);
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`
-    // console.log(url);
+ 
     fetch(url)
     .then(res =>res.json())
     .then(data => displayNewsCategory(data.data))
@@ -48,13 +46,13 @@ const displayNewsCategory = (newsCategorys)  =>{
     }
 
 
-  // console.log(newsCategorys);
+  // newsCategorysContainer
     const newsCategorysContainer = document.getElementById('news-categorys');
 
     newsCategorysContainer.innerHTML = '';
 
     newsCategorys.forEach(newsCategory =>{
-        // console.log(newsCategory);
+      
        const newsList = document.createElement('div');
         newsList.classList.add('card','m-3')
        const categoryDiv = document.createElement('div');
@@ -86,7 +84,7 @@ const displayNewsCategory = (newsCategorys)  =>{
                      <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></p>
                      </div>
                      <div class="col col-lg-3 fs-4 text-center">
-                     <p><i class="fa-solid fa-arrow-right"></i></p>
+                     <p data-bs-toggle="modal" data-bs-target="#displayNewsDetails"  onclick="loadNewsDetails('${newsCategory._id}')"><i class="fa-solid fa-arrow-right"></i></p>
                      </div>
                       </div>
                     </div>
@@ -100,9 +98,7 @@ const displayNewsCategory = (newsCategorys)  =>{
     toggleSpinner(false)
 }
 
-// loadNewsCategory()
-
-
+// toggleSpinner
 const toggleSpinner = isLoading  => {
   const loaderSection = document.getElementById('loader');
   if(isLoading){
@@ -114,7 +110,31 @@ const toggleSpinner = isLoading  => {
   
 }
 
+const loadNewsDetails = id =>{
+  const url = `https://openapi.programming-hero.com/api/news/${id}`;
+  fetch(url)
+  .then(res => res.json())
+  .then(data => displeyNewsDetails(data.data))
+}
 
+// displeyNewsDetails
+const displeyNewsDetails = newses =>{
+ const modalContainer = document.getElementById('displayNewsDetails')
 
+  newses.forEach(news =>{
+
+    const modalTitel = document.getElementById('displayNewsDetailsLabel');
+    modalTitel.innerText = news.title;
+
+    const modalBody = document.getElementById('modal-body');
+    modalBody.innerHTML = `
+     <h4>Author: ${news.author.name ? news.author.name : 'Author Not Available' }</h4>
+     <h6>Date:  ${news.author. published_date ? news.author. published_date: 'Date: 25/08/2022' }</h6>
+    `
+
+  })
+
+  
+}
 
 loadCategory();
