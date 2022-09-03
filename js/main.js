@@ -137,4 +137,7 @@ const displeyNewsDetails = newses =>{
   
 }
 
+loadNewsCategory('01')
+
+
 loadCategory();
