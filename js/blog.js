@@ -1,1 +1,3 @@
-console.log('blog');
+document.getElementById('blog').addEventListener('click', function(){
+    
+})
