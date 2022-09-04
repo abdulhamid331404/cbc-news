@@ -143,7 +143,13 @@ const displeyNewsDetails = newses => {
 
 }
 
-loadNewsCategory('01')
+// blog details
+document.getElementById('blog').addEventListener('click', function(){
+  window.location.href = 'blog.html'
+})
+
+
+loadNewsCategory('08')
 
 
 loadCategory();

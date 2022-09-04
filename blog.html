@@ -7,6 +7,29 @@
     <title>Blog</title>
 </head>
 <body>
-    
+
+    <h1>Difference between let and const</h1>
+    <ul>
+        <li>var declarations are globally scoped or function scoped while let and const are block scoped.</li>
+        <li>var variables can be updated and re-declared within its scope; let variables can be updated but not re-declared; const variables can neither be updated nor re-declared.</li>
+        <li>They are all hoisted to the top of their scope. But while var variables are initialized with undefined, let and const variables are not initialized.</li>
+        <li>While var and let can be declared without being initialized, const must be initialized during declaration.</li>
+    </ul>
+
+<h1>The Difference Between Regular Functions and Arrow Functions</h1>
+<ul>
+    <li>The arrow function example above allows a developer to accomplish the same result with fewer lines of code and approximately half the typing.</li>
+    <li>Arrow functions do not have an arguments binding. However, they have access to the arguments object of the closest non-arrow parent function. Named and rest parameters are heavily relied upon to capture the arguments passed to arrow functions.</li>
+    <li>Unlike regular functions, arrow functions do not have their own this. The value of this inside an arrow function remains the same throughout the lifecycle of the function and is always bound to the value of this in the closest non-arrow parent function.</li>
+</ul>
+
+<h1>Array Methods Explained : Filter vs Map vs Find vs Foreach</h1>
+<ul>
+    <li>.forEach(), is used to execute the same code on every element in an array but does not change the array and it returns undefined.</li>
+    <li>.map() executes the same code on every element in an array and returns a new array with the updated elements.</li>
+    <li>.filter():
+        .filter() checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria.</li>
+</ul>
+
 </body>
 </html>
