@@ -60,20 +60,21 @@ const displayNewsCategory = (newsCategorys) => {
   newsCategorys.forEach(newsCategory => {
 
     const newsList = document.createElement('div');
-    newsList.classList.add('card', 'm-3')
+    newsList.classList.add('card','mt-4')
     const categoryDiv = document.createElement('div');
     categoryDiv.classList.add('row');
     categoryDiv.innerHTML = `
        
-       <div class="col-lg-4">
-                    <img src="${newsCategory.thumbnail_url}" class="img-fluid rounded-start" alt="...">
+       <div class="col-lg-3 col-12 col-sm-6 d-flex  justify-content-center">
+                    <img src="${newsCategory.thumbnail_url}" class=" img-fluid rounded-start" height:100% ;
+                    width:100% ; alt="...">
                   </div>
-                  <div class="col-lg-8">
+                  <div class="col-lg-9 col-12 col-sm-6">
                     <div class="card-body">
                       <h5 class="card-title">${newsCategory.title}</h5>
-                      <p class="card-text">${newsCategory.details.slice(1, 500)}...</p>
+                      <p class="card-text">${newsCategory.details.slice(1, 450)}...</p>
                       <div class="row">
-                     <div class="col col-lg-3 ">
+                     <div class="col col-lg-3  col-4 ">
                     <div class="d-flex">
                     <img style="height:38px; widht: 38px;" src="${newsCategory.author.img}" alt="" />
                     <h6>${newsCategory.author.name ? newsCategory.author.name : 'No Author'}</h6>
@@ -81,15 +82,15 @@ const displayNewsCategory = (newsCategorys) => {
                     </div>
                      <p>${newsCategory.author.published_date ? newsCategory.author.published_date : 'Unabilable'}</p>
                      </div>
-                     <div class="col col-lg-3">
+                     <div class="col col-lg-3 col-3">
                       <p> <i class="fa-regular fa-eye"></i> ${newsCategory.total_view ? newsCategory.total_view : 'No View'}</p>
                      </div>
-                     <div class="col col-lg-3">
+                     <div class="col col-lg-3 col-4">
                      <p>
                      <i class="fa-solid fa-star-half-stroke"></i>
                      <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></p>
                      </div>
-                     <div class="col col-lg-3 fs-4 text-center">
+                     <div class="col col-lg-3 col-1 fs-4 text-center">
                      <p data-bs-toggle="modal" data-bs-target="#displayNewsDetails"  onclick="loadNewsDetails('${newsCategory._id}')"><i class="fa-solid fa-arrow-right"></i></p>
                      </div>
                       </div>
